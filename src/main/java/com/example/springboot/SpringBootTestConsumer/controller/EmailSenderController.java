@@ -49,3 +49,9 @@ public class EmailSenderController {
     return new ResponseEntity<>("Письмо об удалении аккаунта отправлено", HttpStatus.OK);
   }
 }
+//
+//
+//
+//
+//
+//
