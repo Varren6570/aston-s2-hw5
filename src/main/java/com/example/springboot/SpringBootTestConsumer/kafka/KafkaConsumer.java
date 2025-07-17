@@ -11,28 +11,23 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
-/**
- * Конфигурация Kafka‑консьюмера.
- */
+
+/** Конфигурация Kafka‑консьюмера. */
 @Configuration
 @EnableKafka
 public class KafkaConsumer {
 
-    @Value("${spring.kafka.bootstrap-servers}")
-    private String bootstrapServers;
-    /**
-     * Фабрика Kafka‑консьюмеров с настройками по умолчанию.
-     *
-     */
-    @Bean
-    public ConsumerFactory<String, String> consumerFactory() {
-        Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                bootstrapServers);
-        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
-                StringDeserializer.class);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "consumer-group1");
-        return new DefaultKafkaConsumerFactory<>(props);
-    }
+  @Value("${spring.kafka.bootstrap-servers}")
+  private String bootstrapServers;
+
+  /** Фабрика Kafka‑консьюмеров с настройками по умолчанию. */
+  @Bean
+  public ConsumerFactory<String, String> consumerFactory() {
+    Map<String, Object> props = new HashMap<>();
+    props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+    props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+    props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+    props.put(ConsumerConfig.GROUP_ID_CONFIG, "consumer-group1");
+    return new DefaultKafkaConsumerFactory<>(props);
+  }
 }
