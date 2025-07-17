@@ -6,9 +6,8 @@ import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
-import org.springframework.stereotype.Component;
-
 import java.util.Properties;
+import org.springframework.stereotype.Component;
 
 /**
  * Компонент содержащий логику отправки писем
@@ -79,3 +78,4 @@ public class EmailSenderService {
         }
     }
 }
+//
