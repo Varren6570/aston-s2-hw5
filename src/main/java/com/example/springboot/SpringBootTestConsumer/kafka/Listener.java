@@ -27,7 +27,8 @@ public class Listener {
    * @param type тип события (CREATE или DELETE), передаётся в заголовке {@code eventType}
    * @param email email‑адрес, передаётся как тело сообщения
    */
-  @KafkaListener(topics = "notification-topic", groupId = "group1")
+//  @KafkaListener(topics = "notification-topic", groupId = "group1")
+  @KafkaListener(topics = "notification-topic", groupId = "group1", autoStartup = "false")
   void listener(@Header("eventType") String type, @Payload String email) {
     switch (type) {
       case "CREATE" -> {
